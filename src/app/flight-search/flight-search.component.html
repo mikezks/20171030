@@ -1,0 +1,43 @@
+<h1>Flight Search</h1>
+
+<div class="card">
+
+    <div class="form-group">
+        <label>From:</label>
+        <input [(ngModel)]="from" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>To:</label>
+        <input [(ngModel)]="to" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <button 
+            class="btn btn-default"
+            (click)="search()" 
+            [disabled]="!from || !to">Search</button>
+    </div>
+
+
+</div>
+
+<div class="card">
+
+    <table class="table table-contensed">
+        <!--
+            [ngClass]="{ 'active': 'f === selectedFlight'  }" 
+        -->
+        <tr *ngFor="let f of flights" [class.active]="f === selectedFlight">
+            <td>{{f.id}}</td>
+            <td>{{f.from}}</td>
+            <td>{{f.to}}</td>
+            <td>{{f.date | date:'dd.MM.yyyy HH:mm'}}</td>
+            <td><a (click)="select(f)">Select</a></td>
+        </tr>
+    </table>
+
+</div>
+
+<div class="class">
+    <pre>{{ selectedFlight | json }}</pre>
+</div>
