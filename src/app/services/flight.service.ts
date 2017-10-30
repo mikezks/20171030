@@ -8,6 +8,7 @@ import { Flight } from '../entities/flight';
 @Injectable()
 export class FlightService {
 
+    private remoteApi = false;
     public flights: Flight[] = [];
 
     constructor(private http: HttpClient,
@@ -16,9 +17,9 @@ export class FlightService {
 
     findById(id: string): Observable<Flight> {
 
-        // let url = '/data/flight.json';
-        const url = this.baseUrl + '/api/flight';
-
+        const url = (this.remoteApi) ?
+            this.baseUrl + '/api/flight' :
+            '/data/flight.json';
 
         const params = new HttpParams()
                             .set('id', id);
@@ -33,8 +34,9 @@ export class FlightService {
 
     find(from: string, to: string): void {
 
-        // let url = '/data/flights.json';
-        const url = this.baseUrl + '/api/flight';
+        const url = (this.remoteApi) ?
+            this.baseUrl + '/api/flight' :
+            '/data/flights.json';
         
         const params = new HttpParams()
                             .set('from', from) 
