@@ -1,15 +1,14 @@
 <nav class="navbar navbar-default">
   <ul class="nav navbar-nav">
-      <li>
-        <a href="">Home</a>
-      </li>
+    <li routerLinkActive="active"><a routerLink="/home">Home</a></li>
+    <li routerLinkActive="active"><a [routerLink]="'/flight-search'">Flug suchen</a></li>
   </ul>
 </nav>
 
 <div class="container">
 
   <div class="row">
-      <flight-search>Loading...</flight-search>
+    <router-outlet></router-outlet>
   </div>
 </div>
 

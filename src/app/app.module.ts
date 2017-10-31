@@ -8,15 +8,19 @@ import { AppComponent } from './app.component';
 import { FlightSearchComponent } from './flight-search/flight-search.component';
 import { BASE_URL } from './app.tokens';
 import { FlightService } from './services/flight.service';
+import { HomeComponent } from './home/home.component';
+import { AppRouterModule } from './app.routes';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FlightSearchModule
+    FlightSearchModule,
+    AppRouterModule
   ],
   providers: [
     { provide: BASE_URL,
