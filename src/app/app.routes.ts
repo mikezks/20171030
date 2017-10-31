@@ -15,7 +15,8 @@ const APP_ROUTES: Routes = [
     },
     {
         path: 'flight-search',
-        component: FlightSearchComponent
+        component: FlightSearchComponent,
+        pathMatch: 'prefix'
     },
     {
         path: '**',

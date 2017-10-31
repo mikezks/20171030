@@ -8,7 +8,7 @@ import { Flight } from '../entities/flight';
 @Injectable()
 export class FlightService {
 
-    private remoteApi = false;
+    private remoteApi = true;
     public flights: Flight[] = [];
 
     constructor(private http: HttpClient,
@@ -32,7 +32,7 @@ export class FlightService {
                 .get<Flight>(url, { params, headers } );
     }
 
-    find(from: string, to: string): void {
+    find(from: string, to: string): Observable<Flight[]> {
 
         const url = (this.remoteApi) ?
             this.baseUrl + '/api/flight' :
@@ -45,16 +45,8 @@ export class FlightService {
         const headers = new HttpHeaders()
                             .set('Accept', 'application/json');
 
-        this
-            .http
-            .get<Flight[]>(url, { params, headers } )
-            .subscribe(
-                (flights: Flight[]) => {
-                    this.flights = flights;
-                },
-                (err) => {
-                    console.warn(err);
-                }
-            );
+        return this
+                .http
+                .get<Flight[]>(url, { params, headers } );
     }
 }

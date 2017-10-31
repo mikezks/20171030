@@ -14,10 +14,7 @@ export class FlightSearchComponent implements OnInit {
   public to: string = 'Graz';
   public date: string = (new Date()).toISOString();
   public selectedFlight: Flight;
-
-  public get flights() {
-    return this.flightService.flights;
-  }
+  public flights: Flight[] = [];
   
   constructor(private flightService: FlightService) { }
 
@@ -26,7 +23,15 @@ export class FlightSearchComponent implements OnInit {
 
   public search(): void {
       this.flightService
-        .find(this.from, this.to);
+        .find(this.from, this.to)
+        .subscribe(
+          (flights: Flight[]) => {
+              this.flights = flights;
+          },
+          (err) => {
+              console.warn(err);
+          }
+      );;
   }
 
   public select(f: Flight): void {
