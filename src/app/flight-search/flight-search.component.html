@@ -12,32 +12,24 @@
     </div>
 
     <div class="form-group">
-        <button 
-            class="btn btn-default"
-            (click)="search()" 
-            [disabled]="!from || !to">Search</button>
+        <button class="btn btn-default" (click)="search()" [disabled]="!from || !to">Search</button>
     </div>
 
 
 </div>
 
-<div class="card">
+<div class="row">
+    <div *ngFor="let f of flights" class="col-sm-6 col-md-4 col-lg-3 ">
+        <flight-card [item]="f"
+                     [(selectedItem)]="selectedFlight">
+        </flight-card>
 
-    <table class="table table-contensed">
-        <!--
-            [ngClass]="{ 'active': 'f === selectedFlight'  }" 
-        -->
-        <tr *ngFor="let f of flights" [class.active]="f === selectedFlight">
-            <td>{{f.id}}</td>
-            <td>{{f.from | city:'short'}}</td>
-            <td>{{f.to | city:'long'}}</td>
-            <td>{{f.date | date:'dd.MM.yyyy HH:mm'}}</td>
-            <td><a (click)="select(f)">Select</a></td>
-        </tr>
-    </table>
-
+    </div>
 </div>
 
-<div class="class">
-    <pre>{{ selectedFlight | json }}</pre>
+<div class="row" style="margin-top:40px">
+<pre>Warenkorb
+----------------------
+{{selectedFlight | json}}
+</pre>
 </div>

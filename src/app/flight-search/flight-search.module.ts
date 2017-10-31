@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { SharedModule } from '../shared/shared.module';
 import { FlightSearchComponent } from './flight-search.component';
+import { FlightCardComponent } from './flight-card/flight-card.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { FlightSearchComponent } from './flight-search.component';
     SharedModule
   ],
   declarations: [
-    FlightSearchComponent
+    FlightSearchComponent,
+    FlightCardComponent
   ],
   providers: [],
   exports: [
