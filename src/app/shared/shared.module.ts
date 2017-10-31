@@ -5,6 +5,7 @@ import { CityPipe } from './pipes/city.pipe';
 import { CityValidationDirective } from './validation/city-validation.directive';
 import { RoundTripValidationDirective } from './validation/round-trip-validation.directive';
 import { AsyncCityValidationDirective } from './validation/async-city-validation.directive';
+import { TdRxFormValidationDirective } from './validation/td-rx-form-validation.directive';
 
 @NgModule({
   imports: [
@@ -14,14 +15,16 @@ import { AsyncCityValidationDirective } from './validation/async-city-validation
     CityPipe,
     CityValidationDirective,
     RoundTripValidationDirective,
-    AsyncCityValidationDirective
+    AsyncCityValidationDirective,
+    TdRxFormValidationDirective
   ],
   providers: [],
   exports: [
     CityPipe,
     CityValidationDirective,
     RoundTripValidationDirective,
-    AsyncCityValidationDirective
+    AsyncCityValidationDirective,
+    TdRxFormValidationDirective
   ]    
 })
 export class SharedModule { }

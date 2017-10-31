@@ -1,7 +1,8 @@
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
-import { FlightSearchComponent } from './flight-search/flight-search.component';
+import { FlightSearchComponent } from './flight/flight-search/flight-search.component';
+import { ReactiveFlightSearchComponent } from './flight/reactive-flight-search/reactive-flight-search.component';
 
 const APP_ROUTES: Routes = [
     {
@@ -15,8 +16,11 @@ const APP_ROUTES: Routes = [
     },
     {
         path: 'flight-search',
-        component: FlightSearchComponent,
-        pathMatch: 'prefix'
+        component: FlightSearchComponent
+    },
+    {
+        path: 'reactive-flight-search',
+        component: ReactiveFlightSearchComponent,
     },
     {
         path: '**',

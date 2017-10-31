@@ -17,7 +17,8 @@
                     maxlength="30"
                     asyncCity
                     city="Graz,Hamburg,Nürnberg,Frankfurt,Wien,Zürich,Turin"
-                    pattern="[A-Za-zöäüßÖÄÜ]*">
+                    pattern="[A-Za-zöäüßÖÄÜ]*"
+                    allowedCitiesValidatorTd>
         
                 <div *ngIf="f?.controls['from']?.invalid && f?.controls['from']?.dirty">Fehler: <pre>{{ f?.controls['from']?.errors | json }}</pre></div>  
                 <div *ngIf="f?.controls['from']?.hasError('required')">[ required ]</div>  
@@ -25,7 +26,8 @@
                 <div *ngIf="f?.controls['from']?.hasError('maxlength')">[ maxlength ]</div>  
                 <div *ngIf="f?.controls['from']?.hasError('pattern')">[ pattern ]</div>  
                 <div *ngIf="f?.controls['from']?.hasError('city')">[ city ]</div>
-                <div *ngIf="f?.controls['from']?.hasError('asyncCity')">[ asyncCity ]</div>   
+                <div *ngIf="f?.controls['from']?.hasError('asyncCity')">[ asyncCity ]</div>
+                <div *ngIf="f?.controls['from']?.hasError('cityGrazHamburgTdRxForm')">[ cityGrazHamburgTdRxForm ]</div>      
                 <div *ngIf="f?.controls['from']?.pending">
                     <marquee direction="down">Validiere</marquee>
                 </div>
