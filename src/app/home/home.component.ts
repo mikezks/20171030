@@ -1,15 +1,25 @@
+import { AuthService } from '../shared/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+    selector: 'home',
+    templateUrl: './home.component.html'
 })
+
 export class HomeComponent implements OnInit {
+    constructor(private authService: AuthService) { }
 
-  constructor() { }
+    get userName() {
+        return this.authService.userName;
+    }
 
-  ngOnInit() {
-  }
+    login() {
+        this.authService.login();
+    }
 
+    logout() {
+        this.authService.logout();
+    }
+
+    ngOnInit() { }
 }

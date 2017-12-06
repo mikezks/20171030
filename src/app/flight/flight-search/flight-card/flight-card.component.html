@@ -9,6 +9,7 @@
   <div style="height:40px">
     <p>
       <input type="button" value="Auswählen" class="btn btn-default" (click)="select()" />
+      <input type="button" value="Edit" class="btn btn-default" [routerLink]="['../flight-edit', item.id, {showDetails: true}]" />
     </p>
   </div>
 

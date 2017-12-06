@@ -1,0 +1,17 @@
+<div class="card">
+    <p>Id: {{id}}</p>
+    <p>ShowDetails: {{showDetails}}</p>
+    
+    <pre>{{ flight | json }}</pre>
+  
+    <div style="position:relative; z-index: 100" *ngIf="warningDialog.show" class="alert alert-warning">
+        <div>
+        Daten wurden nicht gespeichert! Trotzdem Maske verlassen?
+        </div>
+        <div>
+            <a href="javascript:void(0)" (click)="decide(true)" class="btn btn-danger">Yes</a>
+            <a href="javascript:void(0)" (click)="decide(false)" class="btn btn-default">No</a>
+        </div>
+    </div> 
+  
+  </div>

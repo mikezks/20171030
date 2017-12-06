@@ -1,2 +1,7 @@
-<h1>Willkommen!</h1>
+<h1>Willkommen{{(userName ? ', ' + userName : '')}}!</h1>
 <h4>Hier können Sie nach Flügen suchen.</h4>
+
+<p>
+    <button *ngIf="!userName" class="btn btn-default" (click)="login()">Login</button>
+    <button *ngIf="userName" class="btn btn-default" (click)="logout()">Logout</button>
+</p>

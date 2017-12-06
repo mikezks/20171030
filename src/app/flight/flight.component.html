@@ -1,0 +1,14 @@
+
+<div class="col-sm-3">
+    <div class="card">
+    <ul class="nav nav-pills nav-stacked" style="margin-top:20px;">
+        <li><a routerLinkActive="active" [routerLink]="['./flight-search']">Flight Search</a></li>
+        <li><a routerLinkActive="active" [routerLink]="'./reactive-flight-search'">Flug suchen (reactive)</a></li>
+        <li><a routerLinkActive="active" [routerLink]="['./passenger-search']">Passenger Search</a></li>
+    </ul>
+</div>
+</div>
+
+<div class="col-sm-9">
+        <router-outlet></router-outlet>
+</div>

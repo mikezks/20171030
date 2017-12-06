@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from "@angular/forms";
-import { Subject } from "rxjs/Rx";
+import { Subject } from "rxjs/Subject";
 
 import { Flight } from '../../entities/flight';
 import { FlightService } from '../../services/flight.service';

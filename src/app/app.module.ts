@@ -1,3 +1,5 @@
+import { SharedModule } from './shared/shared.module';
+import { BasketComponent } from './basket/basket.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,12 +16,14 @@ import { AppRouterModule } from './app.routes';
   declarations: [
     AppComponent,
     HomeComponent,
+    BasketComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FlightModule,
-    AppRouterModule
+    //FlightModule, // This prevents Lazy Loading!
+    AppRouterModule,
+    SharedModule.forRoot() // Important for Lazy Loading!
   ],
   providers: [
     { provide: BASE_URL,

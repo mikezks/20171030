@@ -8,7 +8,7 @@ import { Flight } from '../entities/flight';
 @Injectable()
 export class FlightService {
 
-    private remoteApi = true;
+    private remoteApi = false;
     public flights: Flight[] = [];
 
     constructor(private http: HttpClient,
